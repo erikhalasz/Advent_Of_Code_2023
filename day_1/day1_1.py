@@ -1,6 +1,3 @@
-
-
-
 f = open("file1.txt", "r")
 lines = []
 for line in f.readlines():
