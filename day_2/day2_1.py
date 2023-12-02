@@ -5,7 +5,7 @@ t1 = time.time()
 my_dict = {'red': 12, 'green': 13, 'blue': 14}
 sorok = []
 
-f = open("file1.txt")
+f = open("C:/Users/Halász Erik/Documents/Advent_of_code_2023/day_2/file1.txt", "r")
 file = f.readlines()
 f.close()
 
