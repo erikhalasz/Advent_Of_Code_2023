@@ -14,8 +14,8 @@ for i in range(len(text)):
 instances = {f"{k}": 1 for k in range(1, len(text)+1)}
 
 
-for _ in range(len(lines)):
-    line = lines[_]
+for l in range(len(lines)):
+    line = lines[l]
     points_per_game = 0
     for k in range(len(line[0].split(" "))):
         numbers = line[0].split(" ")[k]
@@ -24,7 +24,7 @@ for _ in range(len(lines)):
             points_per_game += 1
     if points_per_game >= 1:
         for y in range(1, points_per_game+1):
-            instances[f"{_ + y + 1}"] += instances[f"{_+1}"]
+            instances[f"{l + y + 1}"] += instances[f"{l+1}"]
 
 s = sum(instances.values())
 

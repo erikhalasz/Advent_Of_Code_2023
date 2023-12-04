@@ -15,8 +15,8 @@ for points_per_game in range(len(text)):
 
 for line in lines:
     points_per_game = 0
-    for _ in range(len(line[0].split(" "))):
-        numbers = line[0].split(" ")[_]
+    for n in range(len(line[0].split(" "))):
+        numbers = line[0].split(" ")[n]
         w_numbers = set(line[1].split(" "))
         if numbers in w_numbers and numbers != "":
             points_per_game += 1
