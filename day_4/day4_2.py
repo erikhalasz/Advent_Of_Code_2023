@@ -11,31 +11,24 @@ for i in range(len(text)):
     lines.append(text[i].replace(f"Card {i+1}: ", "").split("|"))
 
 
-instances = {}
-
-for i in range(len(text)):
-    instances[f"{i+1}"] = 1
+instances = {f"{k}": 1 for k in range(1, len(text)+1)}
 
 
-for m in range(len(lines)):
-    line = lines[m]
-    t = 0
+for _ in range(len(lines)):
+    line = lines[_]
+    points_per_game = 0
     for k in range(len(line[0].split(" "))):
-        kl = line[0].split(" ")[k]
-        l = set(line[1].split(" "))
-        if kl in l and kl != "":
-            t += 1
-    if t >= 1:
-        for y in range(1, t+1):
-            instances[f"{m + y + 1}"] += instances[f"{m+1}"]
+        numbers = line[0].split(" ")[k]
+        w_numbers = set(line[1].split(" "))
+        if numbers in w_numbers and numbers != "":
+            points_per_game += 1
+    if points_per_game >= 1:
+        for y in range(1, points_per_game+1):
+            instances[f"{_ + y + 1}"] += instances[f"{_+1}"]
 
-x = 0
+s = sum(instances.values())
 
-
-for key in instances:
-    x += instances[key]
-
-print(x)
+print(s)
 
 t2 = time.time()
 print(t2-t1)
